@@ -1,6 +1,8 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.9
 
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 EXPOSE 8080
 
 # Keeps Python from generating .pyc files in the container
