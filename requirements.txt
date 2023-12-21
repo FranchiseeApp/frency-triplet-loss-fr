@@ -4,4 +4,3 @@ uvicorn[standard]==0.20.0
 opencv-python-headless
 numpy
 tensorflow
-gunicorn==20.1.0
