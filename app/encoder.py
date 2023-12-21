@@ -1,10 +1,8 @@
-import numpy as np
 import tensorflow as tf
 from keras import layers
 
 from keras.applications import Xception
-from keras.models import Model, Sequential
-from keras.optimizers import Adam
+from keras.models import Sequential
 
 class DistanceLayer(layers.Layer):
     # A layer to compute ‖f(A) - f(P)‖² and ‖f(A) - f(N)‖²
@@ -15,6 +13,7 @@ class DistanceLayer(layers.Layer):
         ap_distance = tf.reduce_sum(tf.square(anchor - positive), -1)
         an_distance = tf.reduce_sum(tf.square(anchor - negative), -1)
         return (ap_distance, an_distance)
+
 
 def get_encoder(input_shape):
     pretrained_model = Xception(
@@ -37,11 +36,12 @@ def get_encoder(input_shape):
     ], name="Encode_Model")
     return encode_model
 
+
 def extract_encoder(model):
     encoder = get_encoder((128, 128, 3))
-    i=0
+    i = 0
     for e_layer in model.layers[0].layers[3].layers:
         layer_weight = e_layer.get_weights()
         encoder.layers[i].set_weights(layer_weight)
-        i+=1
+        i += 1
     return encoder

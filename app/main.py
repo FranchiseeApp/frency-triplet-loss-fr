@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 from fastapi import FastAPI, File, UploadFile
-from triplet_loss import classify_images
+from .triplet_loss import classify_images
 
 app = FastAPI()
 
