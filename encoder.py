@@ -1,6 +1,5 @@
 import tensorflow as tf
 from keras import layers
-
 from keras.applications import Xception
 from keras.models import Sequential
 

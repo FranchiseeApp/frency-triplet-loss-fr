@@ -1,5 +1,5 @@
 import numpy as np
-from .siammese_network import SiameseModel, get_siamese_network, extract_encoder
+from siammese_network import SiameseModel, get_siamese_network, extract_encoder
 
 siamese_network = get_siamese_network()
 siamese_model = SiameseModel(siamese_network)

@@ -1,7 +1,7 @@
 import tensorflow as tf
 from keras import layers, metrics
 from keras.models import Model
-from .encoder import DistanceLayer, get_encoder, extract_encoder
+from encoder import DistanceLayer, get_encoder, extract_encoder
 
 class SiameseModel(Model):
     # Builds a Siamese model based on a base-model
